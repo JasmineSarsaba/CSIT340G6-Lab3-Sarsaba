@@ -28,29 +28,44 @@ const Total = (props) => {
   )
 }
 
-const App = () => {
+const Footer = (props) => {
+  return (
+    <footer>
+      {props.name} - {props.courseCode} - {props.section}
+    </footer>
+  )
+}
 
-    const course = 'CSIT340'
-    const parts = [
-  {
-    name: 'Introduction to ReactJS',
-    exercises: 10
-  },
-  {
-    name: 'Fundamentals of ReactJS',
-    exercises: 7
-  },
-  {
-    name: 'ReactJS Anatomy',
-    exercises: 14
+const App = () => {
+  
+  const course = {
+    name: 'CSIT340',
+    parts: [
+      {
+        name: 'Introduction to ReactJS',
+        exercises: 10
+      },
+      {
+        name: 'Fundamentals of ReactJS',
+        exercises: 7
+      },
+      {
+        name: 'ReactJS Anatomy',
+        exercises: 14
+      }
+    ]
   }
-]
 
   return (
     <div>
-      <Header course={course} />
-      <Content parts={parts} />
-      <Total parts={parts} />
+      <Header course={course.name} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
+      <Footer
+        name="Jasmine Blyss Sarsaba"
+        courseCode="CSIT340"
+        section="G6"
+      />
     </div>
   )
 }
